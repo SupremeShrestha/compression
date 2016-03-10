@@ -76,7 +76,7 @@ public int leadingZeroByte(byte b1)
 	int l = 0;
 	while (b1 != 0)
 	{
-		b1 = (byte) (b1 >> 1);
+		b1 = (byte) ((b1 & 0xFF) >>> 1);
 		l++;	
 	}
 	return 8-l;
@@ -101,7 +101,7 @@ public int trailingZeroByte(byte b1)
 	int l = 0;
 	while ((b1 & 0x01) == 0 && l <= 7 )
 	{
-		b1 = (byte) (b1 >> 1);
+		b1 = (byte) ((b1 & 0xFF) >>> 1);
 		l++;	
 	}
 	return l;
